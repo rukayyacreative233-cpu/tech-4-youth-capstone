@@ -24,14 +24,14 @@
 /* HEADING */
 
 .login-card h1 {
-  color: #1f2937;
+  color: #0f172a;
   font-size: 30px;
   margin-bottom: 10px;
   text-align: center;
 }
 
 .login-card p {
-  color: #4b5563;
+  color: #334155;
   text-align: center;
   margin-bottom: 30px;
 }
@@ -44,7 +44,7 @@
 }
 
 .login-card label {
-  color: #1f2937;
+  color: #0f172a;
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 8px;
@@ -60,24 +60,26 @@
 }
 
 .login-card input:focus {
-  border-color: #6366f1;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 /* LOGIN BUTTON */
 
 .login-card button {
   padding: 14px;
-  background: #6366f1;
+  background: #2563eb;
   color: #ffffff;
   border: none;
   border-radius: 8px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
 }
 
 .login-card button:hover {
-  background: #4f46e5;
+  background: #1d4ed8;
 }
 
 /* REGISTER LINK */
@@ -89,7 +91,7 @@
 }
 
 .register-text a {
-  color: #6366f1;
+  color: #2563eb;
   font-weight: 700;
   text-decoration: none;
 }

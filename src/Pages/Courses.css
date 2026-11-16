@@ -14,14 +14,38 @@
 }
 
 .courses-heading h1 {
-  color: #1f2937;
+  color: #0f172a;
   font-size: 36px;
   font-weight: 800;
 }
 
 .courses-heading p {
-  color: #4b5563;
+  color: #334155;
   font-size: 16px;
+}
+
+/* WELCOME BANNER */
+
+.welcome-banner {
+  background: #eff6ff;
+  border: 1px solid #93c5fd;
+  padding: 22px 26px;
+  border-radius: 16px;
+  margin: 0 0 28px 0;
+  text-align: left;
+}
+
+.welcome-banner h2 {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  color: #0f172a;
+}
+
+.welcome-banner p {
+  margin: 0;
+  font-size: 16px;
+  color: #334155;
+  line-height: 1.6;
 }
 
 /* COURSES GRID */
@@ -44,19 +68,20 @@
 
 .course-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.12);
+  border-color: #93c5fd;
 }
 
 /* CARD TEXT */
 
 .course-card h2 {
-  color: #1f2937;
+  color: #0f172a;
   font-size: 21px;
   margin-bottom: 12px;
 }
 
 .course-card p {
-  color: #4b5563;
+  color: #334155;
   font-size: 14px;
   line-height: 1.6;
   margin-bottom: 25px;
@@ -66,17 +91,18 @@
 
 .course-card a {
   display: inline-block;
-  background: #6366f1;
+  background: #2563eb;
   color: #ffffff;
   padding: 12px 20px;
   border-radius: 8px;
   text-decoration: none;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
 }
 
 .course-card a:hover {
-  background: #4f46e5;
+  background: #1d4ed8;
 }
 
 /* TABLET */
@@ -101,4 +127,10 @@
   .courses-heading h1 {
     font-size: 28px;
   }
+}
+
+/* WELCOME BANNER - MOBILE */
+@media (max-width: 768px) {
+  .welcome-banner { padding: 18px; }
+  .welcome-banner h2 { font-size: 20px; }
 }

@@ -4,60 +4,57 @@ import "./Navbar.css";
   
 function Navbar() {
     const [user, setUser] = useState(null);
+    const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const fetchProfile = async () => {
-      const token = localStorage.getItem("token");
-      if (!token) return;
-      try {
-        const response = await fetch("/api/https://tech4youth-capstone-backend.onrender.comauth/profile", {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
-        if (!response.ok) {
-          if (response.status === 401) {
-            localStorage.removeItem("token");
-          }
-          return;
-        }
-        const data = await response.json();
-        setUser(data.user || data);
-      } catch (error) {
-        console.error("Unable to fetch profile:", error);
-      }
-    };
-    fetchProfile();
-  }, []);
+  const savedUser = localStorage.getItem("user");
+  if (savedUser) {
+    try {
+      setUser(JSON.parse(savedUser));
+    } catch (e) {
+      console.log("No user found");
+    }
+  }
+}, []);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setUser(null);
+    setMenuOpen(false);
     window.location.href = "/login";
   };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <nav className="navbar">
+      <Link to="/" className="nav-logo" onClick={closeMenu}>
+        <h2>Tech <span>4</span> Youth</h2>
+      </Link>
 
-      <h2>Tech <span>4</span> Youth</h2>
+      {/* Hamburger Button - Ana gani a Mobile kawai */}
+      <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
+        {menuOpen ? "✕" : "☰"}
+      </button>
 
-      <div className="nav-links">
-        <Link to="/">Home</Link>
-        <Link to="/courses">Courses</Link>
+      <div className={`nav-links ${menuOpen ? "open" : ""}`}>
+        <Link to="/" className="nav-link" onClick={closeMenu}>Home</Link>
+        <Link to="/courses" className="nav-link" onClick={closeMenu}>Courses</Link>
         {user ? (
-  <>
-    <span>{user.name}</span>
-    <button onClick={handleLogout}>Logout</button>
-  </>
-) : (
-  <>
-    <Link to="/login">Login</Link>
-    <Link to="/register">Register</Link>
-  </>
-)}
-        
+          <>
+            <span className="user-name">👋 {user.name}</span>
+            <button onClick={handleLogout} className="btn-logout">Logout</button>
+          </>
+        ) : (
+          <>
+            <Link to="/login" className="nav-link btn-login" onClick={closeMenu}>Login</Link>
+            <Link to="/register" className="nav-link btn-register" onClick={closeMenu}>Register</Link>
+          </>
+        )}
       </div>
-
     </nav>
   );
 }
