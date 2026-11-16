@@ -46,7 +46,7 @@ function Courses() {
       video: "https://www.youtube.com/watch?v=Ez8F0nW6S-w"
     }
   ];
-
+const savedUser = JSON.parse(localStorage.getItem("user") || "null");
   return (
     <>
       <Navbar />
@@ -59,7 +59,12 @@ function Courses() {
             Learn the skills you need to become a professional software developer.
           </p>
         </div>
-
+{savedUser && (
+  <div className="welcome-banner">
+    <h2>👋 {savedUser.name}, Welcome to Tech4Youth!</h2>
+    <p>Welcome to Tech4Youth Online Learning Platform! Your journey to software is ready, stay consistent to learn. Pick a course below and start today! 🚀</p>
+  </div>
+)}
         <div className="courses-grid">
 
           {courses.map((course, index) => (
