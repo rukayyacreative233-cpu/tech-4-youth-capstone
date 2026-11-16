@@ -10,7 +10,7 @@ function Navbar() {
       const token = localStorage.getItem("token");
       if (!token) return;
       try {
-        const response = await fetch("https://tech4youth-capstone-backend.onrender.com/api/auth/profile", {
+        const response = await fetch("/api/https://tech4youth-capstone-backend.onrender.comauth/profile", {
           headers: {
             Authorization: `Bearer ${token}`
           }
